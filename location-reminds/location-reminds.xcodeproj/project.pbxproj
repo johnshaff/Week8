@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50AB7DFA1DF740F800E5CC26 /* LocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AB7DF91DF740F800E5CC26 /* LocationController.m */; };
+		50AB7DFD1DF74FBE00E5CC26 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AB7DFC1DF74FBE00E5CC26 /* DetailViewController.m */; };
 		50BCCB5A1DF5E8B100FCA904 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 50BCCB591DF5E8B100FCA904 /* main.m */; };
 		50BCCB5D1DF5E8B100FCA904 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50BCCB5C1DF5E8B100FCA904 /* AppDelegate.m */; };
 		50BCCB601DF5E8B100FCA904 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50BCCB5F1DF5E8B100FCA904 /* ViewController.m */; };
@@ -34,6 +36,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		50AB7DF81DF740F800E5CC26 /* LocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationController.h; sourceTree = "<group>"; };
+		50AB7DF91DF740F800E5CC26 /* LocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationController.m; sourceTree = "<group>"; };
+		50AB7DFB1DF74FBE00E5CC26 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		50AB7DFC1DF74FBE00E5CC26 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		50BCCB551DF5E8B100FCA904 /* location-reminds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "location-reminds.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50BCCB591DF5E8B100FCA904 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		50BCCB5B1DF5E8B100FCA904 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -88,6 +94,10 @@
 				50BCCB5E1DF5E8B100FCA904 /* ViewController.h */,
 				50BCCB5F1DF5E8B100FCA904 /* ViewController.m */,
 				50BCCB611DF5E8B100FCA904 /* Main.storyboard */,
+				50AB7DFB1DF74FBE00E5CC26 /* DetailViewController.h */,
+				50AB7DFC1DF74FBE00E5CC26 /* DetailViewController.m */,
+				50AB7DF81DF740F800E5CC26 /* LocationController.h */,
+				50AB7DF91DF740F800E5CC26 /* LocationController.m */,
 				50BCCB641DF5E8B100FCA904 /* Assets.xcassets */,
 				50BCCB661DF5E8B100FCA904 /* LaunchScreen.storyboard */,
 				50BCCB691DF5E8B100FCA904 /* Info.plist */,
@@ -186,6 +196,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50AB7DFD1DF74FBE00E5CC26 /* DetailViewController.m in Sources */,
+				50AB7DFA1DF740F800E5CC26 /* LocationController.m in Sources */,
 				50BCCB601DF5E8B100FCA904 /* ViewController.m in Sources */,
 				50BCCB5D1DF5E8B100FCA904 /* AppDelegate.m in Sources */,
 				50BCCB5A1DF5E8B100FCA904 /* main.m in Sources */,
@@ -355,6 +367,7 @@
 				50BCCB6E1DF5E8B100FCA904 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
