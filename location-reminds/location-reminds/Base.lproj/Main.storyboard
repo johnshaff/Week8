@@ -109,12 +109,28 @@
                     <view key="view" contentMode="scaleToFill" id="vxl-CS-a3a">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iqj-x0-35W">
+                                <rect key="frame" x="16" y="290" width="343" height="81"/>
+                                <color key="backgroundColor" red="1" green="0.67641120851505021" blue="0.12650766914569078" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="SAVE REMINDER"/>
+                                <connections>
+                                    <action selector="saveReminderPressed:" destination="h52-xH-DT9" eventType="touchUpInside" id="YUI-aD-PoT"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iqj-x0-35W" firstAttribute="leading" secondItem="vxl-CS-a3a" secondAttribute="leading" constant="16" id="FZe-cE-l0f"/>
+                            <constraint firstAttribute="trailing" secondItem="iqj-x0-35W" secondAttribute="trailing" constant="16" id="ThB-F5-oJx"/>
+                            <constraint firstItem="iqj-x0-35W" firstAttribute="top" secondItem="Hgc-9U-R1q" secondAttribute="bottom" constant="226" id="Vx2-fr-4h9"/>
+                            <constraint firstItem="Zik-Eb-QTJ" firstAttribute="top" secondItem="iqj-x0-35W" secondAttribute="bottom" constant="296" id="jVx-LM-zzB"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ELT-Nh-6Vk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1942" y="137"/>
+            <point key="canvasLocation" x="1941.5999999999999" y="136.28185907046478"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="JHp-Pt-x1h">

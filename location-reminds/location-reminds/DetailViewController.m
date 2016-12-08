@@ -7,6 +7,8 @@
 //
 
 #import "DetailViewController.h"
+#import "Reminder.h"
+#import "LocationController.h"
 
 @interface DetailViewController ()
 
@@ -22,6 +24,29 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+    
+}
+
+- (IBAction)saveReminderPressed:(UIButton *)sender {
+    
+    NSString *reminderTitle = @"New Reminder";
+    NSNumber *radius = [NSNumber numberWithFloat:100.0];
+    
+    Reminder *newReminder = [Reminder object];
+    newReminder.title = reminderTitle;
+    newReminder.radius = radius;
+    
+    PFGeoPoint *reminderPoint = [PFGeoPoint geoPointWithLatitude:self.coordinate.latitude longitude:self.coordinate.longitude];
+    
+    newReminder.location = reminderPoint;
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"ReminderCreated" object:nil];
+    
+    if(self.completion) {
+        MKCircle *newCircle = [MKCircle circleWithCenterCoordinate:self.coordinate radius:radius.floatValue];
+        self.completion(newCircle);
+        [self.navigationController popViewControllerAnimated:YES];
+        
+    }
     
 }
 

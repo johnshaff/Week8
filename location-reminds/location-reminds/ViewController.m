@@ -8,18 +8,23 @@
 
 #import "ViewController.h"
 #import <Parse/Parse.h>
+@import ParseUI;
+
 #import "DetailViewController.h"
 #import "LocationController.h"
+#import "Reminder.h"
+#import "SignUpViewController.h"
+#import "LoginViewController.h"
 
 @import MapKit;
 
-@interface ViewController () <MKMapViewDelegate, LocationControllerDelegate>
+@interface ViewController () <MKMapViewDelegate, LocationControllerDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
 @property(strong, nonatomic) CLLocationManager *locationManager;
 
-@property(strong, nonatomic) UIColor *pinTintColor;
+//@property(strong, nonatomic) UIColor *pinTintColor;
 
 @property(strong, nonatomic) UIColor *randomColor;
 
@@ -32,22 +37,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     
-//    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
-//    
-//    testObject[@"foo"] = @"bar";
-//    
-//    [testObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-//        if (error) {
-//            NSLog(@"%", error.localizedDescription);
-//            return;
-//        }
-//        
-//        if (succeeded) {
-//            NSLog(@"Successfully saved testObject");
-//        }
-//    }];
-    
+    Reminder *testReminder = [Reminder object];
+    testReminder.title = @"New Reminder! So Exciting!";
+    [testReminder saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"Error: %@", error.localizedDescription);
+        }
+        
+        if (succeeded) {
+            NSLog(@"Check your dashboard, cuz we just saved a reminder");
+        }
+        
+    }];
     
     PFQuery *query = [PFQuery queryWithClassName:@"TestObject"];
 
@@ -69,6 +72,8 @@
     LocationController.sharedController.delegate.self;
     
     [self gimmeDaPointsBro];
+    
+    [self login];
 
 }
 
@@ -77,7 +82,20 @@
     
     [[[LocationController sharedController] manager] startUpdatingLocation];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reminderCreatedNotificationFired) name:@"ReminderCreated" object:nil];
+    
 }
+
+//NOTIFICATION SELECTOR
+-(void)reminderCreatedNotificationFired{
+    NSLog(@"Reminder was Created! Log fired from %@", self);
+    
+}
+
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:@"ReminderCreated" object:nil];
+}
+
 
 -(void)requestPermissions{
     [self setLocationManager:[[CLLocationManager alloc]init]];
@@ -88,46 +106,22 @@
 
 
 
-- (IBAction)setLocationPressed:(id)sender {
-    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(47.6566, -122.351096);
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordinate, 500, 500);
-    
-    [self.mapView setRegion:region animated:YES];
-}
-
-
-//- (IBAction)showLA:(id)sender {
-//    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(34.145215, -118.613893);
-//    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordinate, 100, 100);
+//- (IBAction)setLocationPressed:(id)sender {
+//    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(47.6566, -122.351096);
+//    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordinate, 500, 500);
 //    
 //    [self.mapView setRegion:region animated:YES];
-//    
-//}
-//
-//- (IBAction)showSeattle:(id)sender {
-//    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(47.619927, -122.358452);
-//    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordinate, 100, 100);
-//    
-//    [self.mapView setRegion:region animated:YES];
-//    
-//}
-//
-//- (IBAction)showOlympia:(id)sender {
-//    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(47.085787, -122.742298);
-//    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordinate, 100, 100);
-//    
-//    [self.mapView setRegion:region animated:YES];
-//    
 //}
 
 
 
 -(void)gimmeDaPointsBro{
+    
     CLLocationCoordinate2D olympia = CLLocationCoordinate2DMake(47.085787, -122.742298);
     MKPointAnnotation *olympiaMapPoint = [[MKPointAnnotation alloc]init];
     olympiaMapPoint.coordinate = olympia;
     olympiaMapPoint.title = @"My Olympia House";
-    [self randomAssColors];
+//    [self randomAssColors];
     [self.mapView addAnnotation:olympiaMapPoint];
 
 
@@ -135,31 +129,33 @@
     MKPointAnnotation *seattleMapPoint = [[MKPointAnnotation alloc]init];
     seattleMapPoint.coordinate = seattle;
     olympiaMapPoint.title = @"My Seattle Apartment";
-    [self randomAssColors];
+//    [self randomAssColors];
     [self.mapView addAnnotation:seattleMapPoint];
 
     CLLocationCoordinate2D losAngeles = CLLocationCoordinate2DMake(34.145215, -118.613893);
     MKPointAnnotation *losAngelesMapPoint = [[MKPointAnnotation alloc]init];
     losAngelesMapPoint.coordinate = losAngeles;
     olympiaMapPoint.title = @"My Los Angeles House";
-    [self randomAssColors];
+//    [self randomAssColors];
     [self.mapView addAnnotation:losAngelesMapPoint];
 
-    
-    
 }
+
+
 
 -(void)randomAssColors{
     
     uint32_t randomNumber1 = arc4random_uniform(255);
     uint32_t randomNumber2 = arc4random_uniform(255);
     uint32_t randomNumber3 = arc4random_uniform(255);
-
     
+    NSNumber *random1 = [NSNumber numberWithInt:randomNumber1];
+    NSNumber *random2 = [NSNumber numberWithInt:randomNumber2];
+    NSNumber *random3 = [NSNumber numberWithInt:randomNumber3];
     
-    float red = randomNumber1 / 255;
-    float green = randomNumber2 / 255;
-    float blue = randomNumber3 / 255;
+    float red = random1.floatValue / 255;
+    float green = random2.floatValue / 255;
+    float blue = random3.floatValue / 255;
     
     self.randomColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
 }
@@ -216,7 +212,8 @@
     UIButton *rightCalloutButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     
     annotationView.rightCalloutAccessoryView = rightCalloutButton;
-    annotationView.pinTintColor = _randomColor;
+    [self randomAssColors];
+    annotationView.pinTintColor = self.randomColor;
     // in this method I will call the function that gives me a random color for a the pin tint color
     
     
@@ -242,8 +239,70 @@
             
             detailViewController.annotationTitle = annotationView.annotation.title;
             detailViewController.coordinate = annotationView.annotation.coordinate;
+            
+            __weak typeof(self) bruceBanner = self;
+            
+            detailViewController.completion = ^(MKCircle *circle) {
+                
+                __strong typeof(bruceBanner) hulk = bruceBanner;
+                [hulk.mapView removeAnnotation:annotationView.annotation];
+                [hulk.mapView addOverlay:circle];
+                
+            };
         }
     }
 }
+
+
+-(MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay {
+    MKCircleRenderer *renderer = [[MKCircleRenderer alloc] initWithOverlay:overlay];
+    renderer.fillColor = [UIColor blueColor];
+    renderer.strokeColor = [UIColor colorWithRed:0.0 green:0.0 blue:1.0 alpha:0.25];
+//    renderer.alpha = 0.5;
+    return renderer;
+}
+
+
+
+//MARK: PARSE UI
+
+-(void)login{
+    if (![PFUser currentUser]) {
+        LoginViewController *loginViewController = [[LoginViewController alloc]init];
+        loginViewController.delegate = self;
+        loginViewController.signUpController.delegate = self;
+        [self presentViewController:loginViewController animated:YES completion:nil];
+    } else {
+        [self setupAdditionalUI];
+    }
+}
+
+-(void)setupAdditionalUI{
+    UIBarButtonItem *signOutButton = [[UIBarButtonItem alloc]initWithTitle:@"Sign Out" style:UIBarButtonItemStylePlain target:self action:@selector(signOutPressed)];
+    
+    self.navigationItem.leftBarButtonItem = signOutButton;
+}
+
+-(void)signOutPressed{
+    [PFUser logOut];
+    [self login];
+}
+
+
+//MARK: Parse Delegate Methods
+
+-(void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [self setupAdditionalUI];
+}
+
+-(void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [self setupAdditionalUI];
+
+}
+
+
+
 
 @end

@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50810AFF1DF8852B001116FA /* Reminder.m in Sources */ = {isa = PBXBuildFile; fileRef = 50810AFE1DF8852B001116FA /* Reminder.m */; };
+		50810B011DF8B2AD001116FA /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50810B001DF8B2AD001116FA /* ParseUI.framework */; };
+		50810B021DF8B421001116FA /* ParseUI.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 50810B001DF8B2AD001116FA /* ParseUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		50810B0B1DF8CF64001116FA /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50810B0A1DF8CF64001116FA /* SignUpViewController.m */; };
+		50810B0E1DF8CF90001116FA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50810B0D1DF8CF90001116FA /* LoginViewController.m */; };
+		50810B101DF8D302001116FA /* vectoriousDYT03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 50810B0F1DF8D302001116FA /* vectoriousDYT03.jpg */; };
 		50AB7DFA1DF740F800E5CC26 /* LocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AB7DF91DF740F800E5CC26 /* LocationController.m */; };
 		50AB7DFD1DF74FBE00E5CC26 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AB7DFC1DF74FBE00E5CC26 /* DetailViewController.m */; };
 		50BCCB5A1DF5E8B100FCA904 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 50BCCB591DF5E8B100FCA904 /* main.m */; };
@@ -28,6 +34,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				50810B021DF8B421001116FA /* ParseUI.framework in CopyFiles */,
 				50BCCB811DF5F01000FCA904 /* Bolts.framework in CopyFiles */,
 				50BCCB801DF5F00600FCA904 /* Parse.framework in CopyFiles */,
 			);
@@ -36,6 +43,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		50810AFD1DF8852B001116FA /* Reminder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reminder.h; sourceTree = "<group>"; };
+		50810AFE1DF8852B001116FA /* Reminder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reminder.m; sourceTree = "<group>"; };
+		50810B001DF8B2AD001116FA /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		50810B091DF8CF64001116FA /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignUpViewController.h; path = ../SignUpViewController.h; sourceTree = "<group>"; };
+		50810B0A1DF8CF64001116FA /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignUpViewController.m; path = ../SignUpViewController.m; sourceTree = "<group>"; };
+		50810B0C1DF8CF90001116FA /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		50810B0D1DF8CF90001116FA /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		50810B0F1DF8D302001116FA /* vectoriousDYT03.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = vectoriousDYT03.jpg; sourceTree = "<group>"; };
 		50AB7DF81DF740F800E5CC26 /* LocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationController.h; sourceTree = "<group>"; };
 		50AB7DF91DF740F800E5CC26 /* LocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationController.m; sourceTree = "<group>"; };
 		50AB7DFB1DF74FBE00E5CC26 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
@@ -60,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50810B011DF8B2AD001116FA /* ParseUI.framework in Frameworks */,
 				50BCCB7F1DF5EFF600FCA904 /* Parse.framework in Frameworks */,
 				50BCCB7D1DF5EFEC00FCA904 /* Bolts.framework in Frameworks */,
 			);
@@ -88,11 +104,17 @@
 		50BCCB571DF5E8B100FCA904 /* location-reminds */ = {
 			isa = PBXGroup;
 			children = (
+				50810B091DF8CF64001116FA /* SignUpViewController.h */,
+				50810B0A1DF8CF64001116FA /* SignUpViewController.m */,
+				50810B0C1DF8CF90001116FA /* LoginViewController.h */,
+				50810B0D1DF8CF90001116FA /* LoginViewController.m */,
 				50BCCB5B1DF5E8B100FCA904 /* AppDelegate.h */,
 				50BCCB5C1DF5E8B100FCA904 /* AppDelegate.m */,
 				50BCCB821DF5F0C400FCA904 /* ParseCredentials.h */,
 				50BCCB5E1DF5E8B100FCA904 /* ViewController.h */,
 				50BCCB5F1DF5E8B100FCA904 /* ViewController.m */,
+				50810AFD1DF8852B001116FA /* Reminder.h */,
+				50810AFE1DF8852B001116FA /* Reminder.m */,
 				50BCCB611DF5E8B100FCA904 /* Main.storyboard */,
 				50AB7DFB1DF74FBE00E5CC26 /* DetailViewController.h */,
 				50AB7DFC1DF74FBE00E5CC26 /* DetailViewController.m */,
@@ -109,6 +131,7 @@
 		50BCCB581DF5E8B100FCA904 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				50810B0F1DF8D302001116FA /* vectoriousDYT03.jpg */,
 				50BCCB591DF5E8B100FCA904 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -117,6 +140,7 @@
 		50BCCB7B1DF5EFEB00FCA904 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				50810B001DF8B2AD001116FA /* ParseUI.framework */,
 				50BCCB7E1DF5EFF600FCA904 /* Parse.framework */,
 				50BCCB7C1DF5EFEC00FCA904 /* Bolts.framework */,
 			);
@@ -184,6 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50BCCB681DF5E8B100FCA904 /* LaunchScreen.storyboard in Resources */,
+				50810B101DF8D302001116FA /* vectoriousDYT03.jpg in Resources */,
 				50BCCB651DF5E8B100FCA904 /* Assets.xcassets in Resources */,
 				50BCCB631DF5E8B100FCA904 /* Main.storyboard in Resources */,
 			);
@@ -196,10 +221,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50810B0E1DF8CF90001116FA /* LoginViewController.m in Sources */,
 				50AB7DFD1DF74FBE00E5CC26 /* DetailViewController.m in Sources */,
+				50810AFF1DF8852B001116FA /* Reminder.m in Sources */,
 				50AB7DFA1DF740F800E5CC26 /* LocationController.m in Sources */,
 				50BCCB601DF5E8B100FCA904 /* ViewController.m in Sources */,
 				50BCCB5D1DF5E8B100FCA904 /* AppDelegate.m in Sources */,
+				50810B0B1DF8CF64001116FA /* SignUpViewController.m in Sources */,
 				50BCCB5A1DF5E8B100FCA904 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,6 +352,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "location-reminds/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -340,6 +369,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "location-reminds/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -30,6 +30,7 @@
 @property(strong, nonatomic) CLLocation *location;
 
 //BY DECLARING A DELEGATE PROPERTY WE KNOW WHERE GOING USE THIS CLASS AS THE DELEGATE, WHICH IS ESSENTIALLY AN IMPLIMENTED VERSION OF THE PROTOCAL, WHICH WE THEN ALLOW ALL ID'S TO USE, AS LONG AS THEY CONFORM TO THE SAME PROTOCAL
+
 @property(weak, nonatomic) id<LocationControllerDelegate> delegate;
 
 +(instancetype)sharedController;
