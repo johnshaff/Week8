@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Reminder.h"
 
+#import <Parse/Parse.h>
 @import MapKit;
 
 typedef void(^DetailViewControllerCompletion)(MKCircle *circle);
@@ -18,6 +20,9 @@ typedef void(^DetailViewControllerCompletion)(MKCircle *circle);
 @property(nonatomic) CLLocationCoordinate2D coordinate;
 
 @property(copy, nonatomic) DetailViewControllerCompletion completion;
+
+
+-(Reminder *)createNewReminderWithName:(NSString *)name andRadius:(NSNumber *)radius;
 
 
 @end

@@ -6,8 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -24,63 +22,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="aKb-19-HIh">
-                                <rect key="frame" x="75" y="147" width="225" height="400"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="550"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="HC6-Hd-35V" appends="YES" id="YTb-dK-rx7"/>
                                 </connections>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2lb-iy-qLi">
-                                <rect key="frame" x="75" y="139" width="225" height="0.0"/>
-                                <state key="normal" title="SET LOCATION"/>
-                                <connections>
-                                    <action selector="setLocationPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wV8-Hq-Mco"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zXO-pJ-ekY">
-                                <rect key="frame" x="84" y="555" width="30" height="16"/>
-                                <state key="normal" title="LA"/>
-                                <connections>
-                                    <action selector="showLA:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sYs-r5-j7Z"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U5L-zf-XpM">
-                                <rect key="frame" x="172" y="555" width="30" height="16"/>
-                                <state key="normal" title="SEA"/>
-                                <connections>
-                                    <action selector="showSeattle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4pJ-Uy-4fI"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kKp-2R-6KM">
-                                <rect key="frame" x="262" y="555" width="30" height="16"/>
-                                <state key="normal" title="OLY"/>
-                                <connections>
-                                    <action selector="showOlympia:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Spq-zP-5Gt"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="kKp-2R-6KM" firstAttribute="leading" secondItem="U5L-zf-XpM" secondAttribute="trailing" constant="60" id="0fu-1z-hab"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="U5L-zf-XpM" secondAttribute="bottom" constant="96" id="3yJ-O7-hyF"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kKp-2R-6KM" secondAttribute="bottom" constant="96" id="75r-Kd-AHV"/>
-                            <constraint firstItem="aKb-19-HIh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7dD-dB-esg"/>
-                            <constraint firstItem="kKp-2R-6KM" firstAttribute="leading" secondItem="U5L-zf-XpM" secondAttribute="trailing" constant="60" id="8ni-PS-HqY"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="kKp-2R-6KM" secondAttribute="trailing" constant="67" id="F4T-2L-doI"/>
-                            <constraint firstItem="aKb-19-HIh" firstAttribute="top" secondItem="2lb-iy-qLi" secondAttribute="bottom" constant="8" symbolic="YES" id="LeS-Wf-ZYp"/>
-                            <constraint firstItem="aKb-19-HIh" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="LrQ-Lr-3op"/>
-                            <constraint firstItem="U5L-zf-XpM" firstAttribute="leading" secondItem="zXO-pJ-ekY" secondAttribute="trailing" constant="58" id="a4v-vi-SZF"/>
-                            <constraint firstItem="zXO-pJ-ekY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="68" id="euI-hg-k3L"/>
-                            <constraint firstItem="2lb-iy-qLi" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="75" id="g79-o7-l8e"/>
-                            <constraint firstItem="aKb-19-HIh" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.6" id="glp-eb-0ie"/>
-                            <constraint firstItem="2lb-iy-qLi" firstAttribute="leading" secondItem="aKb-19-HIh" secondAttribute="leading" id="hHK-b6-9FB"/>
-                            <constraint firstItem="2lb-iy-qLi" firstAttribute="width" secondItem="aKb-19-HIh" secondAttribute="width" id="mKE-e6-A3I"/>
-                            <constraint firstItem="U5L-zf-XpM" firstAttribute="top" secondItem="aKb-19-HIh" secondAttribute="bottom" constant="8" id="nf4-5U-H35"/>
-                            <constraint firstItem="aKb-19-HIh" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.6" id="oig-hL-2SB"/>
-                            <constraint firstItem="kKp-2R-6KM" firstAttribute="top" secondItem="aKb-19-HIh" secondAttribute="bottom" constant="8" id="rzU-dz-LtD"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="zXO-pJ-ekY" secondAttribute="bottom" constant="96" id="usa-yD-2Ap"/>
-                            <constraint firstItem="zXO-pJ-ekY" firstAttribute="top" secondItem="aKb-19-HIh" secondAttribute="bottom" constant="8" id="xnf-Os-B5o"/>
-                            <constraint firstItem="U5L-zf-XpM" firstAttribute="leading" secondItem="zXO-pJ-ekY" secondAttribute="trailing" constant="58" id="yUv-VA-Bwj"/>
+                            <constraint firstItem="aKb-19-HIh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="31p-St-MsO"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="aKb-19-HIh" secondAttribute="bottom" constant="53" id="RQ1-0L-OUp"/>
+                            <constraint firstItem="aKb-19-HIh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="RT4-pn-kR1"/>
+                            <constraint firstAttribute="trailing" secondItem="aKb-19-HIh" secondAttribute="trailing" id="pNi-Q4-8KU"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3YH-Kk-Rw6"/>

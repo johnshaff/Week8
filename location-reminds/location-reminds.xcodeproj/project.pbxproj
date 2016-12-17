@@ -15,6 +15,12 @@
 		50810B101DF8D302001116FA /* vectoriousDYT03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 50810B0F1DF8D302001116FA /* vectoriousDYT03.jpg */; };
 		50AB7DFA1DF740F800E5CC26 /* LocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AB7DF91DF740F800E5CC26 /* LocationController.m */; };
 		50AB7DFD1DF74FBE00E5CC26 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AB7DFC1DF74FBE00E5CC26 /* DetailViewController.m */; };
+		50BC35E71DFA05A10012E4BE /* DetailViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 50BC35E61DFA05A10012E4BE /* DetailViewControllerTests.m */; };
+		50BC35E81DFA0A9B0012E4BE /* ParseUI.framework in Resources */ = {isa = PBXBuildFile; fileRef = 50810B001DF8B2AD001116FA /* ParseUI.framework */; };
+		50BC35E91DFA0AA00012E4BE /* Parse.framework in Resources */ = {isa = PBXBuildFile; fileRef = 50BCCB7E1DF5EFF600FCA904 /* Parse.framework */; };
+		50BC35EA1DFA0AA40012E4BE /* Bolts.framework in Resources */ = {isa = PBXBuildFile; fileRef = 50BCCB7C1DF5EFEC00FCA904 /* Bolts.framework */; };
+		50BC35ED1DFA0B9A0012E4BE /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50BC35EB1DFA0B9A0012E4BE /* Bolts.framework */; };
+		50BC35EE1DFA0B9A0012E4BE /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50BC35EC1DFA0B9A0012E4BE /* Parse.framework */; };
 		50BCCB5A1DF5E8B100FCA904 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 50BCCB591DF5E8B100FCA904 /* main.m */; };
 		50BCCB5D1DF5E8B100FCA904 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50BCCB5C1DF5E8B100FCA904 /* AppDelegate.m */; };
 		50BCCB601DF5E8B100FCA904 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50BCCB5F1DF5E8B100FCA904 /* ViewController.m */; };
@@ -26,6 +32,16 @@
 		50BCCB801DF5F00600FCA904 /* Parse.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 50BCCB7E1DF5EFF600FCA904 /* Parse.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		50BCCB811DF5F01000FCA904 /* Bolts.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 50BCCB7C1DF5EFEC00FCA904 /* Bolts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		50BC35E11DFA05390012E4BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 50BCCB4D1DF5E8B100FCA904 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 50BCCB541DF5E8B100FCA904;
+			remoteInfo = "location-reminds";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		50BCCB781DF5ED6100FCA904 /* CopyFiles */ = {
@@ -55,6 +71,11 @@
 		50AB7DF91DF740F800E5CC26 /* LocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationController.m; sourceTree = "<group>"; };
 		50AB7DFB1DF74FBE00E5CC26 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		50AB7DFC1DF74FBE00E5CC26 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		50BC35DC1DFA05390012E4BE /* location-remindsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "location-remindsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		50BC35E01DFA05390012E4BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50BC35E61DFA05A10012E4BE /* DetailViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewControllerTests.m; sourceTree = "<group>"; };
+		50BC35EB1DFA0B9A0012E4BE /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = Carthage/Build/iOS/Bolts.framework; sourceTree = "<group>"; };
+		50BC35EC1DFA0B9A0012E4BE /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = Carthage/Build/iOS/Parse.framework; sourceTree = "<group>"; };
 		50BCCB551DF5E8B100FCA904 /* location-reminds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "location-reminds.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50BCCB591DF5E8B100FCA904 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		50BCCB5B1DF5E8B100FCA904 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -71,6 +92,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		50BC35D91DFA05390012E4BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50BC35EE1DFA0B9A0012E4BE /* Parse.framework in Frameworks */,
+				50BC35ED1DFA0B9A0012E4BE /* Bolts.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		50BCCB521DF5E8B100FCA904 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -84,10 +114,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		50BC35DD1DFA05390012E4BE /* location-remindsTests */ = {
+			isa = PBXGroup;
+			children = (
+				50BC35E01DFA05390012E4BE /* Info.plist */,
+				50BC35E61DFA05A10012E4BE /* DetailViewControllerTests.m */,
+			);
+			path = "location-remindsTests";
+			sourceTree = "<group>";
+		};
 		50BCCB4C1DF5E8B100FCA904 = {
 			isa = PBXGroup;
 			children = (
 				50BCCB571DF5E8B100FCA904 /* location-reminds */,
+				50BC35DD1DFA05390012E4BE /* location-remindsTests */,
 				50BCCB561DF5E8B100FCA904 /* Products */,
 				50BCCB7B1DF5EFEB00FCA904 /* Frameworks */,
 			);
@@ -97,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				50BCCB551DF5E8B100FCA904 /* location-reminds.app */,
+				50BC35DC1DFA05390012E4BE /* location-remindsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -140,6 +181,8 @@
 		50BCCB7B1DF5EFEB00FCA904 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				50BC35EB1DFA0B9A0012E4BE /* Bolts.framework */,
+				50BC35EC1DFA0B9A0012E4BE /* Parse.framework */,
 				50810B001DF8B2AD001116FA /* ParseUI.framework */,
 				50BCCB7E1DF5EFF600FCA904 /* Parse.framework */,
 				50BCCB7C1DF5EFEC00FCA904 /* Bolts.framework */,
@@ -150,6 +193,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		50BC35DB1DFA05390012E4BE /* location-remindsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50BC35E51DFA05390012E4BE /* Build configuration list for PBXNativeTarget "location-remindsTests" */;
+			buildPhases = (
+				50BC35D81DFA05390012E4BE /* Sources */,
+				50BC35D91DFA05390012E4BE /* Frameworks */,
+				50BC35DA1DFA05390012E4BE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				50BC35E21DFA05390012E4BE /* PBXTargetDependency */,
+			);
+			name = "location-remindsTests";
+			productName = "location-remindsTests";
+			productReference = 50BC35DC1DFA05390012E4BE /* location-remindsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		50BCCB541DF5E8B100FCA904 /* location-reminds */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 50BCCB6C1DF5E8B100FCA904 /* Build configuration list for PBXNativeTarget "location-reminds" */;
@@ -177,6 +238,12 @@
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "John Shaff";
 				TargetAttributes = {
+					50BC35DB1DFA05390012E4BE = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 679533JEG9;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 50BCCB541DF5E8B100FCA904;
+					};
 					50BCCB541DF5E8B100FCA904 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 679533JEG9;
@@ -198,11 +265,22 @@
 			projectRoot = "";
 			targets = (
 				50BCCB541DF5E8B100FCA904 /* location-reminds */,
+				50BC35DB1DFA05390012E4BE /* location-remindsTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		50BC35DA1DFA05390012E4BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50BC35EA1DFA0AA40012E4BE /* Bolts.framework in Resources */,
+				50BC35E91DFA0AA00012E4BE /* Parse.framework in Resources */,
+				50BC35E81DFA0A9B0012E4BE /* ParseUI.framework in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		50BCCB531DF5E8B100FCA904 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -217,6 +295,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		50BC35D81DFA05390012E4BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50BC35E71DFA05A10012E4BE /* DetailViewControllerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		50BCCB511DF5E8B100FCA904 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -233,6 +319,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		50BC35E21DFA05390012E4BE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 50BCCB541DF5E8B100FCA904 /* location-reminds */;
+			targetProxy = 50BC35E11DFA05390012E4BE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		50BCCB611DF5E8B100FCA904 /* Main.storyboard */ = {
@@ -254,6 +348,40 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		50BC35E31DFA05390012E4BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 679533JEG9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "location-remindsTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.johnshaff.location-remindsTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/location-reminds.app/location-reminds";
+			};
+			name = Debug;
+		};
+		50BC35E41DFA05390012E4BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 679533JEG9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "location-remindsTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.johnshaff.location-remindsTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/location-reminds.app/location-reminds";
+			};
+			name = Release;
+		};
 		50BCCB6A1DF5E8B100FCA904 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -381,6 +509,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		50BC35E51DFA05390012E4BE /* Build configuration list for PBXNativeTarget "location-remindsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50BC35E31DFA05390012E4BE /* Debug */,
+				50BC35E41DFA05390012E4BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		50BCCB501DF5E8B100FCA904 /* Build configuration list for PBXProject "location-reminds" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -31,6 +31,8 @@
 
 
 
+
+
 @end
 
 @implementation ViewController
@@ -39,28 +41,55 @@
     [super viewDidLoad];
 
     
-    Reminder *testReminder = [Reminder object];
-    testReminder.title = @"New Reminder! So Exciting!";
-    [testReminder saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-        if (error) {
-            NSLog(@"Error: %@", error.localizedDescription);
+//    Reminder *testReminder = [Reminder object];
+//    testReminder.title = @"New Reminder! So Exciting!";
+//    [testReminder saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+//        if (error) {
+//            NSLog(@"Error: %@", error.localizedDescription);
+//        }
+//        
+//        if (succeeded) {
+//            NSLog(@"Check your dashboard, cuz we just saved a reminder");
+//        }
+//        
+//    }];
+//    
+//    PFQuery *query = [PFQuery queryWithClassName:@"TestObject"];
+//
+//
+//    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+//        if (!error) {
+//            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+//                NSLog(@"%@", objects);
+//            }];
+//        }
+//    }];
+    
+    PFQuery *queryAll = [PFQuery queryWithClassName:@"Reminder"];
+    
+    [queryAll findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        if (!error) {
+            
+            __weak typeof(self) bruceBanner = self;
+            
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                
+                __strong typeof(bruceBanner) hulk = bruceBanner;
+
+                NSLog(@">>>>>>>>>>>>>>>>>>>>%@<<<<<<<<<<<<<<<<<<<<<<<<<<<<", objects);
+                //Display all fetched reminders on mapview
+                
+                [hulk.mapView addOverlays:[hulk createOverlaysFrom:objects]];
+            }];
+        } else {
+            
         }
         
-        if (succeeded) {
-            NSLog(@"Check your dashboard, cuz we just saved a reminder");
-        }
         
     }];
     
-    PFQuery *query = [PFQuery queryWithClassName:@"TestObject"];
-
-    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-        if (!error) {
-            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                NSLog(@"%@", objects);
-            }];
-        }
-    }];
+    
+    
     
     [self requestPermissions];
     [self.mapView setShowsUserLocation:YES];
@@ -76,6 +105,24 @@
     [self login];
 
 }
+
+-(NSArray *)createOverlaysFrom:(NSArray *)reminders {
+    
+    NSMutableArray *mkCircleArray = [[NSMutableArray alloc]init];
+    
+    for (Reminder *reminder in reminders) {
+        
+        //This creates a struct
+        CLLocationCoordinate2D newCoordinate = CLLocationCoordinate2DMake(reminder.location.latitude, reminder.location.longitude);
+        
+        MKCircle *newCircle = [MKCircle circleWithCenterCoordinate:newCoordinate radius:reminder.radius.floatValue];
+        
+        [mkCircleArray addObject:newCircle];
+    }
+    
+    return mkCircleArray;
+}
+
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
@@ -106,12 +153,12 @@
 
 
 
-//- (IBAction)setLocationPressed:(id)sender {
-//    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(47.6566, -122.351096);
-//    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordinate, 500, 500);
-//    
-//    [self.mapView setRegion:region animated:YES];
-//}
+- (IBAction)setLocationPressed:(id)sender {
+    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(47.6566, -122.351096);
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordinate, 500, 500);
+    
+    [self.mapView setRegion:region animated:YES];
+}
 
 
 
@@ -121,22 +168,19 @@
     MKPointAnnotation *olympiaMapPoint = [[MKPointAnnotation alloc]init];
     olympiaMapPoint.coordinate = olympia;
     olympiaMapPoint.title = @"My Olympia House";
-//    [self randomAssColors];
     [self.mapView addAnnotation:olympiaMapPoint];
 
 
     CLLocationCoordinate2D seattle = CLLocationCoordinate2DMake(47.619927, -122.358452);
     MKPointAnnotation *seattleMapPoint = [[MKPointAnnotation alloc]init];
     seattleMapPoint.coordinate = seattle;
-    olympiaMapPoint.title = @"My Seattle Apartment";
-//    [self randomAssColors];
+    seattleMapPoint.title = @"My Seattle Apartment";
     [self.mapView addAnnotation:seattleMapPoint];
 
     CLLocationCoordinate2D losAngeles = CLLocationCoordinate2DMake(34.145215, -118.613893);
     MKPointAnnotation *losAngelesMapPoint = [[MKPointAnnotation alloc]init];
     losAngelesMapPoint.coordinate = losAngeles;
-    olympiaMapPoint.title = @"My Los Angeles House";
-//    [self randomAssColors];
+    losAngelesMapPoint.title = @"My Los Angeles House";
     [self.mapView addAnnotation:losAngelesMapPoint];
 
 }
@@ -188,33 +232,37 @@
 
 //MARK: MKMapViewDelegate
 
+//MKAnnotationView is a subclass of UIView. MKPinAnnotationView is a subclass of MKAnnotationView.
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
     
     if ([annotation isKindOfClass:[MKUserLocation class]]) {
         return nil;
     }
     
-    
+    //Created a new MKPinAnnotationView
     MKPinAnnotationView *annotationView = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:@"AnnotationView"];
     
     
-    //This will assign it either way whether its been created in memory or not.
-    
+    //This will assign whatever annotation came in from the viewForAnnotation signature.
     annotationView.annotation = annotation;
     
+    
+    //If an MKPinAnnotationView doesn't exist we're going to initialize a new one from annotation that came in from the signature
     if (!annotationView) {
         annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"AnnotationView"];
     }
     
+    //We're adding a callout box to the MKPinAnnotationView and animate it's drop
     annotationView.canShowCallout = YES;
     annotationView.animatesDrop = YES;
     
-    UIButton *rightCalloutButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-    
-    annotationView.rightCalloutAccessoryView = rightCalloutButton;
+    //We're running the random color method and then assigning that color to the MKPinAnnotationView's pinTinColor
     [self randomAssColors];
     annotationView.pinTintColor = self.randomColor;
-    // in this method I will call the function that gives me a random color for a the pin tint color
+    
+    //We're creating a new button and then assigning that button to the MKPinAnnotationView
+    UIButton *rightCalloutButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    annotationView.rightCalloutAccessoryView = rightCalloutButton;
     
     
     return annotationView;

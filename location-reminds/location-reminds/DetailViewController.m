@@ -10,6 +10,7 @@
 #import "Reminder.h"
 #import "LocationController.h"
 
+@import UserNotifications;
 @interface DetailViewController ()
 
 @end
@@ -32,13 +33,10 @@
     NSString *reminderTitle = @"New Reminder";
     NSNumber *radius = [NSNumber numberWithFloat:100.0];
     
-    Reminder *newReminder = [Reminder object];
-    newReminder.title = reminderTitle;
-    newReminder.radius = radius;
     
-    PFGeoPoint *reminderPoint = [PFGeoPoint geoPointWithLatitude:self.coordinate.latitude longitude:self.coordinate.longitude];
+    Reminder *reminder = [self createNewReminderWithName:reminderTitle andRadius:radius];
     
-    newReminder.location = reminderPoint;
+
     [[NSNotificationCenter defaultCenter]postNotificationName:@"ReminderCreated" object:nil];
     
     if(self.completion) {
@@ -48,7 +46,76 @@
         
     }
     
+    __weak typeof(self) bruceBanner = self;
+    
+    [reminder saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        
+        __strong typeof(bruceBanner) hulk = bruceBanner;
+        
+        if (error) {
+            NSLog(@"%@", error.localizedDescription);
+            
+        } else {
+            NSLog(@"Save Reminder to Parse Success: %i", succeeded);
+            
+            if (hulk.completion) {
+                
+                if ([CLLocationManager isMonitoringAvailableForClass:[CLCircularRegion class]]) {
+                    CLCircularRegion *region = [[CLCircularRegion alloc]initWithCenter:hulk.coordinate radius:radius.floatValue identifier:reminderTitle];
+                    
+                    [[LocationController sharedController].manager startMonitoringForRegion:region];
+                    
+                    [hulk createNotificationForRegion:region withName:reminderTitle];
+                }
+                
+                MKCircle *newCircle = [MKCircle circleWithCenterCoordinate:hulk.coordinate radius:radius.floatValue];
+                hulk.completion(newCircle);
+                
+                [hulk.navigationController popViewControllerAnimated:YES];
+            }
+        }
+        
+    }];
+    
 }
+
+-(Reminder *)createNewReminderWithName:(NSString *)name andRadius:(NSNumber *)radius{
+    
+    Reminder *newReminder = [Reminder object];
+    newReminder.title = name;
+    newReminder.radius = radius;
+    PFGeoPoint *reminderPoint = [PFGeoPoint geoPointWithLatitude:self.coordinate.latitude longitude:self.coordinate.longitude];
+
+    newReminder.location = reminderPoint;
+
+    return newReminder;
+}
+
+-(void)createNotificationForRegion:(CLRegion *)region withName:(NSString *)reminderName {
+    UNMutableNotificationContent *content = [[UNMutableNotificationContent alloc]init];
+    content.title = @"Location Reminder";
+    content.body = reminderName;
+    content.sound = [UNNotificationSound defaultSound];
+    
+    //All kinds of triggers: region, calendar, timer, server push... we're using region
+//    UNLocationNotificationTrigger *trigger = [UNLocationNotificationTrigger triggerWithRegion:region repeats:YES];
+
+    UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:7.0 repeats:YES];
+    
+    UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:reminderName content:content trigger:trigger];
+    
+    //This is getting a reference to the shared center which is the singleton where the notifications a stored
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+    
+    //This adds our request to the singleton which is the noticication center
+    [center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"Error Adding Notification with Error: %@", error.localizedDescription);
+        }
+    }];
+}
+
+
 
 
 

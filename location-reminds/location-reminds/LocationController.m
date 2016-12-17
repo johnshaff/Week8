@@ -8,6 +8,8 @@
 
 #import "LocationController.h"
 
+@import NotificationCenter;
+
 @interface LocationController () <CLLocationManagerDelegate>
 
 @end
@@ -27,6 +29,8 @@
     
     return sharedController;
 }
+
+
 
 -(instancetype)init{
     self = [super init];
@@ -52,5 +56,33 @@
     [self.delegate locationControllerUpdatedLocation:locations.lastObject];
 }
 
+-(void)locationManager:(CLLocationManager *)manager didStartMonitoringForRegion:(CLRegion *)region {
+    NSLog(@"Started Monitoring Region for : %@", region);
+}
+
+-(void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
+    NSLog(@"USER DID ENTER REGION!! NO BUG!! %@", region);
+}
+
+
+//ERROR HANDLING
+
+-(void)locationManager:(CLLocationManager *)manager monitoringDidFailForRegion:(CLRegion *)region withError:(NSError *)error {
+    NSLog(@"Error");
+}
+
+-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    NSLog(@"Error");
+    
+}
+
+-(void)locationManager:(CLLocationManager *)manager didFinishDeferredUpdatesWithError:(NSError *)error {
+    NSLog(@"Error");
+
+}
+
+-(void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region {
+    NSLog(@"Left Region");
+}
 
 @end

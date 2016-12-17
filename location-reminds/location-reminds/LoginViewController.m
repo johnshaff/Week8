@@ -16,8 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    UIImageView *newLogo = [[UIImageView alloc]initWithFrame:self.logInView.logo.frame];
-//    newLogo.image = [UIImage imageNamed:@"vectoriousDYT03.jpg"];
+    UIImageView *newLogo = [[UIImageView alloc]initWithFrame:self.logInView.logo.frame];
+    newLogo.image = [UIImage imageNamed:@"vectoriousDYT03.jpg"];
 
     self.logInView.logo = nil;
     self.logInView.backgroundColor = [UIColor redColor];
